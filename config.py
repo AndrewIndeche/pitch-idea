@@ -6,7 +6,7 @@ class Config:
 
 
 
-class ProdConfig(Config):
+class ProductionConfig(Config):
     '''
     Production  configuration child class
 
@@ -16,7 +16,7 @@ class ProdConfig(Config):
     pass
 
 
-class DevConfig(Config):
+class DevelopmentConfig(Config):
     '''
     Development  configuration child class
 
@@ -25,3 +25,9 @@ class DevConfig(Config):
     '''
 
     DEBUG = True
+
+config_options={
+    'dev': DevelopmentConfig,
+    'prod': ProductionConfig
+
+}
