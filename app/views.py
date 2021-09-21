@@ -1,8 +1,8 @@
 from flask import render_template
-from app import app
+from . import main
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -11,11 +11,11 @@ def index():
     title = 'Welcome'
     return render_template('index.html',title = title)
 
-@app.route('/Entry_form/')
+@main.route('/Entry_form/')
 def Entry_form ():
     Entry_form = Entry_form()
 
     '''
     View movie page function that returns the form entry page for user login and its data
     '''
-    return render_template('Entry_form.html', Entry_form =Entry_form  )
+    return render_template('Entry_form.html')

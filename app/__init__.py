@@ -13,4 +13,4 @@ def create_app(config_name):
     db.init_app(app)
     app.config.from_object(config_options[config_name])
 
-    return app
+from app import views

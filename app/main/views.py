@@ -18,4 +18,4 @@ def Entry_form ():
     '''
     View movie page function that returns the form entry page for user login and its data
     '''
-    return render_template('Entry_form.html', Entry_form =Entry_form  )
+    return render_template('Entry_form.html')
