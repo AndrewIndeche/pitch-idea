@@ -27,7 +27,7 @@ virtualenv
 Cloning
 In your terminal:
 
-  $ git clone https://github.com/emdeechege/NewsApi/
+  $ git clone https://github.com/AndrewIndeche/pitch-idea
   $ cd Pitch-idea
 Running the Application
 Creating the virtual environment
