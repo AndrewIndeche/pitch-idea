@@ -13,4 +13,6 @@ def create_app(config_name):
     db.init_app(app)
     app.config.from_object(config_options[config_name])
 
-from app import views
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+    return app
