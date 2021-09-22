@@ -1,4 +1,4 @@
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Permanent+Marker&display=swap" rel="stylesheet">
 .center {
   display: block;
   margin-left: auto;
@@ -9,5 +9,6 @@
   display: flex;
 }
 .body{
-  font-family: 'Permanent Marker',cursive;
+  font-family: 'Courgette', cursive;
+  font-family: 'Permanent Marker', cursive;
 }
