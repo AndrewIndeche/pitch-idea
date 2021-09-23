@@ -3,15 +3,13 @@ class Config:
     '''
     General configuration parent class
     '''
-    pass
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://username:"password"@localhost/pitch-list'
+    SECRET_KEY = os.urandom(32)
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-
 
 class ProductionConfig(Config):
     '''
@@ -20,9 +18,7 @@ class ProductionConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    pass
-class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://username:"password"@localhost/pitch-list_test'
+    SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
 
 class DevelopmentConfig(Config):
     '''
@@ -36,7 +32,5 @@ class DevelopmentConfig(Config):
 
 config_options={
     'dev': DevelopmentConfig,
-    'prod': ProductionConfig,
-    'test':TestConfig
-
-}
+    'prod': ProductionConfig
+    }

@@ -21,11 +21,11 @@
       <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
         <li style="color:white;padding:15px;">{{current_user.username}}</li>
-        <li><a href="{{url_for('auth.logout')}}"><span class="glyphicon glyphicon-log-in" style="color: white"></span> Logout</a></li>
+        <li><a href="{{url_for('auth.logout')}}"><span class="glyphicon glyphicon-sign-out" style="color: white"></span> Logout</a></li>
          {% else %}
         <li><a href="{{url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in" style="color: white"></span> Login</a></li>
           {%endif%}
-        <li><a href="#"><span class="glyphicon glyphicon-user" style="color: white"></span> Sign Up</a></li>
+        <li><a href="{{url_for('auth.register')}}"><span class="glyphicon glyphicon-log-out" style="color: white"></span> Sign Up</a></li>
         </ul>
     </div>
     </nav>

@@ -30,7 +30,7 @@ def new_pitch():
         new_pitch_object.save_p()
         return redirect(url_for('main.index'))
 
-    return render_template('create_pitch.html', form = form)
+    return render_template('login.html', form = form)
 
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
