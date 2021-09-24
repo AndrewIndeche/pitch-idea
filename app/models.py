@@ -10,17 +10,13 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),index = True)
     email = db.Column(db.String(255),unique = True,index = True)
-    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     password_hash = db.Column(db.String(255))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
-    pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
-    comment = db.relationship('Comment', backref='user', lazy='dynamic')
-    upvote = db.relationship('Upvote',backref='user',lazy='dynamic')
-    downvote = db.relationship('Downvote',backref='user',lazy='dynamic')
-
-    reviews = db.relationship('Review',backref = 'user',lazy = "dynamic")
-
+    pitches = db.relationship('Pitch', backref='users', lazy='dynamic')
+    comment = db.relationship('Comment', backref='users', lazy='dynamic')
+    upvote = db.relationship('Upvote',backref='users',lazy='dynamic')
+    downvote = db.relationship('Downvote',backref='users',lazy='dynamic')
 
     @property
     def password(self):
@@ -45,18 +41,6 @@ class User(UserMixin,db.Model):
 
     def __repr__(self):
         return f'User {self.username}'
-
-class Role(db.Model):
-    __tablename__ = 'roles'
-
-    id = db.Column(db.Integer,primary_key = True)
-    name = db.Column(db.String(255))
-    users = db.relationship('User',backref = 'role',lazy="dynamic")
-
-
-    def __repr__(self):
-        return f'User {self.name}'
-
 
 class Pitch(db.Model):
     __tablename__ = 'pitches'

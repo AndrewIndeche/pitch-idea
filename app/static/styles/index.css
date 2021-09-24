@@ -5,10 +5,14 @@
   margin-right: auto;
   width: 50%;
 }
-.container-fluid {
-  display: flex;
-}
+
 .body{
   font-family: 'Courgette', cursive;
   font-family: 'Permanent Marker', cursive;
+}
+.card{
+  border: 2px solid black;
+  outline: #4CAF50 solid 10px;
+  margin: auto;
+  padding: 20px;
 }
