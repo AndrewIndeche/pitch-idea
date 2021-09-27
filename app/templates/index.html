@@ -1,15 +1,25 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro %}
 {% block content %}
-<div class="container bg dark">
   <h1 class="text-center"><strong>Welcome to Recipe Pitch Page</strong></h1>
    <p class="text-center" style="font-weight:normal;font-size:20px">Pitch your recipe ideas to get feedback from our community</p>
+   <div class="container bg danger">
     <div class="col-30">
       <div class="container">
-        <div class="card-columns">
-          <div class="cards">
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-{% endblock%}
+          <div class="card-columns">
+            <div class="card-stacked">
+              <div class="cards"><br>
+                  {{ macro.display(Breakfast) }}
+              </div>
+              <div class="cards" id="event"><br>
+                  {{ macro.display(Lunch)}}
+              </div>
+              <div  class="cards" id="jobs"><br>
+                  {{ macro.display(Dinner) }}
+                  </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+      </div>
+    {% endblock%}

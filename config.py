@@ -1,4 +1,7 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 class Config:
     '''
     General configuration parent class
@@ -10,7 +13,12 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://andrew:123456@localhost/pitch'
+
+    @staticmethod
+    def init_app(app):
+        pass
+
 
 class ProductionConfig(Config):
     '''
@@ -19,7 +27,7 @@ class ProductionConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    
+
 class DevelopmentConfig(Config):
     '''
     Development  configuration child class

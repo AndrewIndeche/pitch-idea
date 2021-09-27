@@ -1,5 +1,5 @@
 from . import db,login_manager
-from app import create_app,db
+from app import create_app
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin,current_user
 from datetime import datetime
@@ -10,7 +10,7 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),index = True)
     email = db.Column(db.String(255),unique = True,index = True)
-    password_hash = db.Column(db.String(255))
+    secure_password = db.Column(db.String(255))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pitches = db.relationship('Pitch', backref='users', lazy='dynamic')
@@ -24,11 +24,11 @@ class User(UserMixin,db.Model):
 
     @password.setter
     def password(self, password):
-        self.pass_secure = generate_password_hash(password)
+        self.secure_password = generate_password_hash(password)
 
 
     def verify_password(self,password):
-        return check_password_hash(self.pass_secure,password)
+        return check_password_hash(self.secure_password,password)
 
     def save_u(self):
         db.session.add(self)
@@ -47,12 +47,13 @@ class Pitch(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(255),nullable = False)
     post = db.Column(db.Text(), nullable = False)
+    text = db.Column(db.String)
     comment = db.relationship('Comment',backref='pitch',lazy='dynamic')
     upvote = db.relationship('Upvote',backref='pitch',lazy='dynamic')
     downvote = db.relationship('Downvote',backref='pitch',lazy='dynamic')
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     time = db.Column(db.DateTime, default = datetime.utcnow)
-    category = db.Column(db.String(255), index = True,nullable = False)
+    category = db.Column(db.String(255))
 
     def save_p(self):
         db.session.add(self)
@@ -120,6 +121,7 @@ class Downvote(db.Model):
 
     def __repr__(self):
         return f'{self.user_id}:{self.pitch_id}'
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))

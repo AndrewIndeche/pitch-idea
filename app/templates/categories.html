@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+  <h1 align="center" class="text-uppercase"><strong>{{cat}}<strong></h1>
+    <div class="container">
+      <div class="card-columns">
+  {% if pitches %}
+      {% for category in pitches %}
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title"><strong>{{category.title}}<strong></p>
+          <medium class="text" style="font-weight:normal">{{category.category}}</medium>
+            </div>
+        <div class="card-footer">
+          <medium class="text" style="font-weight:normal">{{category.user.username}}</medium>
+            <p class="card-text">MORE</p>
+            <br>
+          <medium class="card-text">{{category.comment.count}}</medium>
+          <br><br>
+          <span class="foot" > <a href="{{url_for('main.like',id = category.id)}}"><i class="fa fa-thumbs-up" style="font-size:12px;color: green"></i></a> {{category.upvote.count()}}</span>
+					<span class="foot"> <a href="{{url_for('main.dislike',id = category.id)}}"> <i class="fa fa-thumbs-down" style="color:red;"></i> {{category.downvote.count()}}</a></span></div>
+          <a href="{{url_for('main.comment',pitch_id = category.id)}}" class="btn btn-info btn-sm"> Comment</a>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+				<div class="card w-90 mb-3">
+					<div class="card-body">
+						<p class="card-title">No posts</p>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+      </body>
+     {% endblock %}
