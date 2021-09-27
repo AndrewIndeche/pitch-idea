@@ -9,9 +9,10 @@
 .body{
   font-family: 'Courgette', cursive;
   font-family: 'Permanent Marker', cursive;
+  background-image: "{{ url_for('static', filename='background.jpg')}}"
 }
-.body{
-    background-image: "{{ url_for('static', filename='photos/background.jpg')}}"
+body{
+    background-image: "{{ url_for('static', filename='background.jpg')}}"
   }
 .footer{
     margin: 20px;
