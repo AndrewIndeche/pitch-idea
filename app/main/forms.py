@@ -14,6 +14,5 @@ class CommentForm(FlaskForm):
 class PitchForm(FlaskForm):
     title = StringField('Title', validators=[Required()])
     category = SelectField('Choose a category', choices=CATEGORY_CHOICES, validators=[Required()])
-    pitch_text = TextAreaField('Your ingredients here', validators=[Required()])
-    pitch_text = TextAreaField('Your Recipe here', validators=[Required()])
-    post = SubmitField('Post')
+    post = TextAreaField('Your Recipe here', validators=[Required()])
+    submit = SubmitField('Pitch')

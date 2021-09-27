@@ -1,34 +1,17 @@
+
 {% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
 {% block content %}
-<div class="container-fluid mt-3 ml-3 ml-3">
-    <div class="row">
-        <!-- CURRENT USER -->
-        {% if current_user.is_authenticated%}
-        <li class="nav-item">
-        <a class="nav-link" href="{{url_for('main.new_pitch')}}">New Pitch</a>
-        </li>
-        {% endif %}
-        <div class="col-md-3 bg-success ml-0 mb-1 text-center">
-            {% if user.profile_pic_path  %}
-            <img class="img-thumbnail mt-3" src="{{url_for('static',filename=user.avatar)}}" alt="profile-image"> {% else %}
-            <p>Add picture</p>
-            <div class="text p-2">
-                <h4 class="text-uppercase">{{user.username}}</h4>
-                {% if user.bio %}
-                <p>{{user.bio}}</p>
-                {% else %}
-                <p>No bio set</p>
-                {% endif %}
-                <span class={{user.email}}</span>
-            </div>
-            <div class="buttons">
-                <button class="btn btn-outline-secondary">
-                    <a href="/new_pitch" class="text-dark">Create a pitch</a>
-                </button>
-                <button class="btn btn-outline-secondary">
-                    <a class="text-dark" href="{{url_for('main.profile',name=user.username)}}">Edit profile</a>
-                </button>
-            </div>
-        </div>
-        {% endif %}
-      {% endblock %}
+<div class="container">
+<div class="row">
+<div class="col-md-3"> </div>
+<div class="col-md-6">
+
+{{wtf.quick_form(pitch_form)}}
+
+</div>
+<div class="col-md-3"></div>
+</div>
+</div>
+{% endblock %}

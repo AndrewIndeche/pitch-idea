@@ -3,18 +3,18 @@
 {% block content %}
   <h1 class="text-center"><strong>Welcome to Recipe Pitch Page</strong></h1>
    <p class="text-center" style="font-weight:normal;font-size:20px">Pitch your recipe ideas to get feedback from our community</p>
-   <div class="container bg danger">
+   <div class="container">
     <div class="col-30">
       <div class="container">
           <div class="card-columns">
             <div class="card-stacked">
-              <div class="cards"><br>
+              <div class="cards border-danger"><br>
                   {{ macro.display(Breakfast) }}
               </div>
-              <div class="cards" id="event"><br>
+              <div class="cards border-danger" id="event"><br>
                   {{ macro.display(Lunch)}}
               </div>
-              <div  class="cards" id="jobs"><br>
+              <div  class="card border-danger" id="jobs"><br>
                   {{ macro.display(Dinner) }}
                   </div>
                   </div>
