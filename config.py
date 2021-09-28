@@ -6,15 +6,14 @@ class Config:
     '''
     General configuration parent class
     '''
-    SECRET_KEY = os.urandom(32)
+    SECRET_KEY=os.environ.get('SECRET_KEY')
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-
+    
     @staticmethod
     def init_app(app):
         pass
