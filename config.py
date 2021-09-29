@@ -7,7 +7,7 @@ class Config:
     General configuration parent class
     '''
     SECRET_KEY=os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://andrew:123456@localhost/pitch'
+    SQLALCHEMY_DATABASE_URI = ('DATABASE_URL')
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
@@ -39,6 +39,6 @@ class DevelopmentConfig(Config):
     DEBUG = True
 
 config_options={
-    'dev': DevelopmentConfig,
-    'prod': ProductionConfig
+    'development': DevelopmentConfig,
+    'production': ProductionConfig
     }
