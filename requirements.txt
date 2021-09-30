@@ -31,3 +31,7 @@ charset-normalizer==2.0.4
 pathlib==1.0.1
 googlefonts-installer==0.3.1
 urllib3==1.26.6
+<<<<<<< HEAD
+=======
+
+>>>>>>> b7c1041006a2fce3f13c741214dafe67fcff078b
