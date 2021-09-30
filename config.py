@@ -6,8 +6,8 @@ class Config:
     '''
     General configuration parent class
     '''
-    SECRET_KEY=os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = ('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SECRET_KEY = os.environ.get('SECRET_KEY')
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
@@ -19,7 +19,6 @@ class Config:
     def init_app(app):
         pass
 
-
 class ProductionConfig(Config):
     '''
     Production  configuration child class
@@ -27,7 +26,7 @@ class ProductionConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 class DevelopmentConfig(Config):
     '''
     Development  configuration child class
