@@ -3,8 +3,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Config:
+    '''
+    General configuration parent class
+    '''
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-    SQLALCHEMY_TRACK_MODIFICATIONS=True
     SECRET_KEY = os.environ.get('SECRET_KEY')
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -13,9 +15,18 @@ class Config:
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
-class ProductionConfig(Config):
+    @staticmethod
+    def init_app(app):
+        pass
 
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+class ProductionConfig(Config):
+    '''
+    Production  configuration child class
+
+    Args:
+        Config: The parent configuration class with General configuration settings
+    '''
+
 class DevelopmentConfig(Config):
     '''
     Development  configuration child class
