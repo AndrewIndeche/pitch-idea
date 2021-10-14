@@ -1,12 +1,13 @@
-<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Permanent+Marker&display=swap" rel="stylesheet">
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+
+@font-face {
+  font-family: 'Courgette';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/courgette/v8/wEO_EBrAnc9BLjLQAUk1WPoK7Es.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
-.body{
+.h1.h2{
   font-family: 'Courgette', cursive;
   font-family: 'Permanent Marker', cursive;
   background-image: "{{ url_for('static', filename='/static/photos/background.jpg')}}"
@@ -14,4 +15,12 @@
 
 .footer{
     margin: 20px;
+  }
+  .center.container{
+    min-width: 585px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px 10px 10px;
+    border: 0.08em solid black;
   }

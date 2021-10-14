@@ -14,10 +14,10 @@ def index():
     View root page function that returns the index page and its data
     '''
     pitches=Pitch.query.all()
-    Breakfast = Pitch.query.filter_by(category = 'Breakfast').all()
-    Lunch= Pitch.query.filter_by(category = 'Lunch').all()
-    Dinner = Pitch.query.filter_by(category = 'Dinner').all()
-    return render_template('index.html', Breakfast = Breakfast ,Lunch = Lunch, pitches = pitches,Dinner= Dinner)
+    Jokes = Pitch.query.filter_by(category = 'Jokes').all()
+    Inspiration= Pitch.query.filter_by(category = 'Inspiration').all()
+    Random = Pitch.query.filter_by(category = 'Random').all()
+    return render_template('index.html', Jokes = Jokes ,Inspiration = Inspiration, pitches = pitches,Random= Random)
 
 @main.route('/create_new', methods = ['POST','GET'])
 @login_required

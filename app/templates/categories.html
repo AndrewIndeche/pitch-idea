@@ -2,8 +2,7 @@
 {% block content %}
 <body>
   <h1 align="center" class="text-uppercase"><strong>{{cat}}<strong></h1>
-    <div class="container">
-      <div class="card-columns">
+  <div class="card-stacked">
   {% if pitches %}
       {% for category in pitches %}
       <div class="card">
@@ -26,10 +25,9 @@
       {% else %}
 				<div class="card w-90 mb-3">
 					<div class="card-body">
-						<p class="card-title">No posts</p>
+						<p class="card-title">''</p>
 					</div>
 				</div>
 				{% endif %}
-			</div>
-      </body>
+		    </body>
      {% endblock %}

@@ -1,13 +1,8 @@
 {% macro display(pitches) %}
-<div class="container-fluid">
-		<div class="col-30">
-			<div class="container">
-					<div class="card-columns">
-				{% if pitches %}
-					{% for category in pitches %}
-					<div class="col-md-4" >
-							<div class="card-stacked">
-						 <h5 class="card-header">{{category.title}}</h5>
+	<div class="card-rows">
+						{% for category in pitches %}
+					<div class="col-md-8" >
+							 <h5 class="card-header">{{category.title}}</h5>
 							<div class="card-body">
 								<p class="text"> Category: {{category.category}}</p>
 								<p class="text-center">{{category.post}}</p>
@@ -20,13 +15,7 @@
 									<span class="card-body"> <a href="{{url_for('main.dislike',id = category.id)}}"> <i class="fa fa-thumbs-down" style="color:red;font-size:18px"></i></a></span></div>
 										<a href="{{url_for('main.pitch_comments',pitch_id = category.id)}}" class="btn btn-info btn-sm"> Comment</a>
 									</div>
-						</div>
-					</div>
+										</div>
 					{% endfor %}
-				{% else %}
-						<div class="card-body">
-						<p class="card-title">No posts</p>
-					</div>
-				{% endif %}
-			</div>
+							</div>
 {% endmacro %}
